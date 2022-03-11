@@ -78,7 +78,7 @@ public class Main4 : MonoBehaviour
         Militar unidadAtacante = (Militar)listaAtacantes[DevolverIndiceAtacanteVivo(listaAtacantes)];
         Debug.Log(unidadAtacante.Atacar(DevolverEnemigoVivo(listaAtacados)));
     }
-
+    //Esta funcion genera un indice aleatorio hasta que encuentra a un enemigo vivo y luego lo devuelve
     private Unidades DevolverEnemigoVivo(List<Unidades> unidadesAtacadas){
         Unidades unidadElegida;
         int numeroAleatorio;
@@ -88,6 +88,8 @@ public class Main4 : MonoBehaviour
         } while(!unidadElegida.GetViva());
         return unidadElegida;
     }
+    //Esta funcion genera indice aleatorio dentro de los atacantes si no esta vivo devuelve
+    //el otro este esta vivo debido a que si no no entraria por el while
     private int DevolverIndiceAtacanteVivo(List<Unidades> unidadesAtacantes){
         int indiceAtacanteAleatorio = Random.Range(0, 2);
         if (unidadesAtacantes[indiceAtacanteAleatorio].GetViva()){
@@ -96,7 +98,6 @@ public class Main4 : MonoBehaviour
             return indiceAtacanteAleatorio==1?0:1;
         }
     }
-
     //Si el guerrero y el arquero estan vivos devolvemos True
     private bool IsEquipoVivo(List<Unidades> equipo, Color color)
     {
